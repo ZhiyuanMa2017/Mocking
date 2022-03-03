@@ -14,11 +14,11 @@ const data = require("../mock.json")
 describe('testMain', function () {
 
   // MOCK SERVICE
-  var mockService = nock("https://api.github.com")
-    // .log(console.log)
-    .persist() // This will persist mock interception for lifetime of program.
-    .get("/repos/testuser/Hello-World/issues")
-    .reply(200, JSON.stringify(data.issueList))
+  // var mockService = nock("https://api.github.com")
+  //   // .log(console.log)
+  //   .persist() // This will persist mock interception for lifetime of program.
+  //   .get("/repos/testuser/Hello-World/issues")
+  //   .reply(200, JSON.stringify(data.issueList))
   
 
   describe('#findMostFrequentAssignee()', function () {
