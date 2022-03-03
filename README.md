@@ -1,8 +1,5 @@
 # Unit Testing
-[![Build Status](https://travis-ci.org/CSC-510/Mocking.svg?branch=master)](https://travis-ci.org/CSC-510/Mocking) 
-[![Greenkeeper badge](https://badges.greenkeeper.io/CSC-510/Mocking.svg)](https://greenkeeper.io/)
-[![dependencies Status](https://david-dm.org/CSC-510/Mocking/status.svg)](https://david-dm.org/CSC-510/Mocking)
-[![devDependencies Status](https://david-dm.org/CSC-510/Mocking/dev-status.svg)](https://david-dm.org/CSC-510/Mocking?type=dev)
+
 
 In this workshop, you will learn about [unit testing and mocking](https://docs.google.com/presentation/d/1g3Vle16u0NS5iLpKcliTwC5ZVrDwVXJ69xGwZVeASrI/edit#slide=id.g1802376e63_0_0), specifically mocking responses to http requests to RESTful apis without needing to make a real call.
 
@@ -18,7 +15,7 @@ Run `npm test`. You should see something like:
 
 A primary goal of mocking is to switch between real sources of data and mock data without impacting the implementation of the code. 
 
-There are several libraries that support mocking. One common feature in mocking libraries is the ability to easily build mock objects that will have a fixed behavior for a specific test case. For example, using mockito, you could test the `mostRetweeted` function, but building a mock object of tweet statuses.
+There are several libraries that support mocking. One common feature in mocking libraries is the ability to easily build mock objects that will have a fixed behavior for a specific test case. For example, using mockito, you could test the `mostRetweeted` function by building a mock object of tweet statuses.
 
 ```java
 List<Status> statuses = new ArrayList<Status>()
@@ -45,11 +42,11 @@ var mockService = nock("https://api.github.com")
 
 ### Test Suites
 
-Unit testing often involves running a set of test cases that exist in a test suite. A test case is typically focuses on one specific behavior of a unit (class/file) and usually focuses on a single function.
+Unit testing often involves running a set of test cases that exist in a test suite. A test case typically focuses on one specific behavior of a unit (class/file) and usually focuses on a single function.
 
 [Mocha](https://mochajs.org/) is a tool for managing test cases for javascript programs. Mocha will run all tests in the "test" directory.
 
-In this example, you can see a test suite with two test cases and a before hook, which will be called before any test case is run. You can also call after hooks, which can be used to clean up after a set of test cases are run.
+In this example, you can see a test suite with two test cases and a `before` hook, which will be called before any test case is run. You can also call `after` hooks, which can be used to clean up after a set of test cases are run.
 
 ```javascript
 describe('earth', function(){
