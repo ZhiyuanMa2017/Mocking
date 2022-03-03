@@ -10,13 +10,12 @@ async function getRepos(userName) {
 		headers: {
 			"content-type": "application/json",
 			"Authorization": token
-		},
-		json: true
+		}
 	};
 
 	// Send a http request to url
-	let repos = (await got(url, options)).body;
-	return repos;
+	let repos = (await got(url, options));
+	return JSON.parse(repo.body);
 }
 
 async function getIssues(owner, repo) {
@@ -26,13 +25,12 @@ async function getIssues(owner, repo) {
 		headers: {
 			"content-type": "application/json",
 			"Authorization": token
-		},
-		json: true
+		}
 	};
 
 	// Send a http request to url
-	let issues = (await got(url, options)).body;
-	return issues;
+	let issues = await got(url, options);
+	return JSON.parse(issues.body);
 }
 
 async function getAnIssue(owner, repo, number) {
@@ -42,13 +40,12 @@ async function getAnIssue(owner, repo, number) {
 		headers: {
 			"content-type": "application/json",
 			"Authorization": token
-		},
-		json: true
+		}
 	};
 
 	// Send a http request to url
-	let issue = (await got(url, options)).body;
-	return issue;
+	let issue = (await got(url, options));
+	return JSON.parse(issue.body);
 }
 
 exports.getRepos = getRepos;

@@ -1,7 +1,7 @@
 const _ = require("underscore");
 const github = require("./github.js");
 
-// Which person is assigned to most to issues?
+// Which person is assigned the most to issues?
 async function findMostFrequentAssignee(user, repo) {
 	// mock data needs list of issues.
 	let issues = await github.getIssues(user, repo);
@@ -20,7 +20,7 @@ async function countClosed(user, repo) {
 	return states.length;
 }
 
-// How many words in an issue's title version an issue's body?
+// How many words in an issue's title versus it's body?
 async function titleBodyWordCountRatio(user, repo, number) {
 	// mock data needs list of issues.
 	let issue = await github.getAnIssue(user, repo, number);

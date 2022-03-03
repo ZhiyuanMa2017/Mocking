@@ -14,10 +14,12 @@ const data = require("../mock.json")
 describe('testMain', function () {
 
   // MOCK SERVICE
-  // var mockService = nock("https://api.github.com")
-  //   .persist() // This will persist mock interception for lifetime of program.
-  //   .get("/repos/testuser/Hello-World/issues")
-  //   .reply(200, JSON.stringify(data.issueList) );
+  var mockService = nock("https://api.github.com")
+    // .log(console.log)
+    .persist() // This will persist mock interception for lifetime of program.
+    .get("/repos/testuser/Hello-World/issues")
+    .reply(200, JSON.stringify(data.issueList))
+  
 
   describe('#findMostFrequentAssignee()', function () {
     // TEST CASE
@@ -39,7 +41,7 @@ describe('testMain', function () {
 
     // TEST CASE...
     it('should find octocat with 4 issues assigned', async function () {
-      // it is also possible to just return a promise, without using done.mostFrequentAssigneemostFrequentAssignee
+      // it is also possible to just return a promise, without using done.mostFrequentAssignee
       let mostFrequentAssignee = await main.findMostFrequentAssignee("testuser", "Hello-World");
       expect(mostFrequentAssignee.userName).to.equal("octocat");
       expect(mostFrequentAssignee.count).to.equal(4);
@@ -62,7 +64,7 @@ describe('testMain', function () {
       .get("/repos/testuser/Hello-World/issues/0")
       .reply(200, JSON.stringify(data.issueList[0]));
 
-    it('ration should be .5 for issue #0', async function() {
+    it('ratio should be .5 for issue #0', async function() {
       let titleBodyWordCountRatio = await main.titleBodyWordCountRatio("testuser", "Hello-World", 0);
       expect(titleBodyWordCountRatio).to.equal("0.5");
     }); 
