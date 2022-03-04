@@ -15,7 +15,7 @@ async function getRepos(userName) {
 
 	// Send a http request to url
 	let repos = (await got(url, options));
-	return JSON.parse(repo.body);
+	return JSON.parse(repos.body);
 }
 
 async function getIssues(owner, repo) {
