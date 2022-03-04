@@ -14,12 +14,12 @@ const data = require("../mock.json")
 describe('testMain', function () {
 
   // MOCK SERVICE
-  // var mockService = nock("https://api.github.com")
-  //   // .log(console.log)
-  //   .persist() // This will persist mock interception for lifetime of program.
-  //   .get("/repos/testuser/Hello-World/issues")
-  //   .reply(200, JSON.stringify(data.issueList))
-  
+  var mockService = nock("https://api.github.com")
+    // .log(console.log)
+    .persist() // This will persist mock interception for lifetime of program.
+    .get("/repos/testuser/Hello-World/issues")
+    .reply(200, JSON.stringify(data.issueList))
+
 
   describe('#findMostFrequentAssignee()', function () {
     // TEST CASE
@@ -58,6 +58,11 @@ describe('testMain', function () {
 
   });
 
+  var mockService2 = nock("https://api.github.com")
+      .persist() // This will persist mock interception for lifetime of program.
+      .get("/repos/testuser/Hello-World/issues/2")
+      .reply(200, JSON.stringify(data.issueList[2]))
+
   describe('#titleBodyWordCountRatio()', function () {
 
     const issue0 = nock("https://api.github.com")
@@ -73,6 +78,20 @@ describe('testMain', function () {
       let titleBodyWordCountRatio = await main.titleBodyWordCountRatio("testuser", "Hello-World", 2);
       expect(titleBodyWordCountRatio).to.equal("NA");
     }); 
+
+  });
+
+  var mockService3 = nock("https://api.github.com")
+      .persist() // This will persist mock interception for lifetime of program.
+      .get("/users/testuser/repos")
+      .reply(200, JSON.stringify(data.stars))
+
+  describe('#maxStars()', function () {
+
+    it('should find max stars', async function () {
+      let maxStars = await main.maxStars("testuser", "Hello-World");
+      expect(maxStars).to.equal(80);
+    });
 
   });
 
