@@ -1,4 +1,4 @@
-# Unit Testing
+# Unit Testing With 'Nock' Mocking
 
 
 In this workshop, you will learn about mocking, specifically mocking responses to http requests to RESTful apis without needing to make a real call.
