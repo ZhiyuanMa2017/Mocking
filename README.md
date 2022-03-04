@@ -9,6 +9,8 @@ Clone this repository. Change into directory and run `npm install`.
 
 Run `npm test`. You should see something like:
 
+(WINDOWS USERS:   edit `package.json` and change line 7 to `".\node_modules\.bin\mocha --reporter spec test\*.js"`.  For the curious...[why Windoes uses backslash](http://www.os2museum.com/wp/why-does-windows-really-use-backslash-as-path-separator/))
+
 ![image](https://cloud.githubusercontent.com/assets/742934/18939521/dd0610e8-85ce-11e6-879a-30a52f7c0907.png)
 
 ### Mocking
