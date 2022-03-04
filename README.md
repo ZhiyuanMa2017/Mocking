@@ -17,6 +17,7 @@ A primary goal of mocking is to switch between real sources of data and mock dat
 
 There are several libraries that support mocking. One common feature in mocking libraries is the ability to easily build mock objects that will have a fixed behavior for a specific test case. For example, using mockito, you could test the `mostRetweeted` function by building a mock object of tweet statuses.
 
+(This is just a example, not something you need to run for this workshop)
 ```java
 List<Status> statuses = new ArrayList<Status>()
 testStatus = Mockito.mock(Status.class);
